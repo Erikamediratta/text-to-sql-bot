@@ -7,7 +7,10 @@ load_dotenv()
 from db import get_engine, dialect_name
 from guardrails import is_safe_sql
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+import streamlit as st
+
+
+client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 MODEL = "gemini-2.5-flash-lite" 
 
 
